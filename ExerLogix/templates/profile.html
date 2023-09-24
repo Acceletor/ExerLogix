@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block username %}{{username.username}}{% endblock %}
+
+{% block main1 %}
+<div class="container-fluid">
+    <h1 style="text-align: center">Profile</h1>
+
+    <form class="p-2" action="/profile" method="post">
+        <div class="input-group">
+        <input type="text" name="gender" class="form-control" placeholder="Gender(male/female)">
+        <input type="text" name="height" class="form-control" placeholder="Height in cm">
+        <input type="text" name="age" class="form-control" placeholder="Age">
+        <input type="text" name="goalweight" class="form-control" placeholder="Goal Weight">
+        <br>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Sumbit</button>
+        </div>
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="profile main-title">
+        <div class="image-container">
+            <img class="image" src="https://thenounproject.com/api/private/icons/4777292/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0" alt="body icon" width="250" height="300">
+        </div>
+
+        {% if not current_weight and not profilelist %}
+            <div class="profile-info">
+                <!-- Add user profile information here -->
+                <h2>User Profile</h2>
+                <p>Username: {{username.username}}</p>
+                <p>Gender: -</p>
+                <p>Height: -</p>
+                <p>Age: -</p>
+                <p>Current: -</p>
+                <p>Goal Weight: -</p>
+            </div>
+        {% elif not profilelist %}
+            <div class="profile-info">
+                <!-- Add user profile information here -->
+                <h2>User Profile</h2>
+                <p>Username: {{username.username}}</p>
+                <p>Gender: -</p>
+                <p>Height: -</p>
+                <p>Age: -</p>
+                <p>Current: {{current_weight[0].weight}}</p>
+                <p>Goal Weight: -</p>
+            </div>
+        {% elif not current_weight %}
+        <div class="profile-info">
+            <!-- Add user profile information here -->
+            <h2>User Profile</h2>
+            <p>Username: {{username.username}}</p>
+            <p>Gender: {{profilelist[0].gender}}</p>
+            <p>Height: {{profilelist[0].height}}</p>
+            <p>Age: {{profilelist[0].age}}</p>
+            <p>Current: -</p>
+            <p>Goal Weight: {{profilelist[0].goalweight}}</p>
+        </div>
+        {% else %}
+            <div class="profile-info">
+                <!-- Add user profile information here -->
+                <h2>User Profile</h2>
+                <p>Username: {{username.username}}</p>
+                <p>Gender: {{profilelist[0].gender}}</p>
+                <p>Height: {{profilelist[0].height}}</p>
+                <p>Age: {{profilelist[0].age}}</p>
+                <p>Current: {{current_weight[0].weight}}</p>
+                <p>Goal Weight: {{profilelist[0].goalweight}}</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

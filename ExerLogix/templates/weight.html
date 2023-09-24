@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Weight
+{% endblock %}
+
+{% block username %}{{username.username}}{% endblock %}
+
+{% block main1 %}
+    <div class="container-fluid">
+        <h1 style="text-align: center">Weight</h1>
+
+        <form class="p-2" action="/weight" method="post">
+            <div class="input-group">
+            <input type="text" name="weight" class="form-control" placeholder="Weight in Kg">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Weight</button>
+            </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="collapse1">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for weight in weights %}
+                    <tr>
+                        <td>{{weight.date}}</td>
+                        <td>{{weight.weight}}</td>
+                        <td>
+                            <button type="button" class="btn btn-secondary position-relative">
+                                <a style="text-decoration:none; color:#fff;" href="/delete_weight/{{weight.id}}">Delete </a>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

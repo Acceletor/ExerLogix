@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Exercise
+{% endblock %}
+
+{% block username %}{{username.username}}{% endblock %}
+
+{% block main1 %}
+{% if not check_profile and not current_weight %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>NOTED! <u>TO USE:</u></strong> You should input all the detail into profile page and Weight in weight page before using this.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="container-fluid">
+    <h1 style="text-align: center">Exercise</h1>
+    <form class="p-2" action="/exercise" method="post">
+        <div class="input-group">
+        <input type="text" name="text" class="form-control" placeholder="Enter your workout. Examples: ran 3 mile, 30 min yoga">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Sumbit</button>
+        </div>
+        </div>
+    </form>
+</div>
+
+<div id="collapse1">
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Exercise</th>
+                <th>Calories</th>
+                <th>Duration</th>
+                <th>MET</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercise in exercises_list %}
+                <tr>
+                    <td>{{exercise.date}}</td>
+                    <td>{{exercise.exercise}}</td>
+                    <td>{{exercise.calories}}</td>
+                    <td>{{exercise.duration}}</td>
+                    <td>{{exercise.met}}</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary position-relative">
+                            <a style="text-decoration:none; color:#fff;" href="/delete_exercise/{{exercise.id}}">Delete </a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

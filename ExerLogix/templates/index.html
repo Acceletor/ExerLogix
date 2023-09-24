@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block username %}{{username.username}}{% endblock %}
+
+{% block main1 %}
+    <div class="main-title">
+        <p class="font-weight-bold">DASHBOARD</p>
+    </div>
+    <div class="main-cards">
+
+        <div class="card">
+            <div class="card-inner">
+                <p>Current Weight</p>
+                <span class="material-icons-outlined text-blue">monitor_weight</span>
+            </div>
+            <span class="font-weight-bond">
+                {% if not current_weight %}
+                    {{current_weight[0]}}-
+                {% else %}
+                    {{current_weight[0].weight}} Kg
+                {% endif %}
+            </span>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <p >Calories burned</p>
+                <span class="material-icons-outlined text-orange">poll</span>
+            </div>
+            <span class="font-weight-bond">
+                {% if today_calories_burn[0].todayCalSum is none %}
+                    0 Kcal
+                {% else %}
+                    {{ today_calories_burn[0].todayCalSum | round | int}} Kcal
+                {% endif %}
+
+            </span>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <p>Today's Date</p>
+                <span class="material-icons-outlined text-green">today</span>
+            </div>
+            <span class="font-weight-bond">{{today_date}}</span>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <p>Weight Goal</p>
+                <span class="material-icons-outlined text-red">flag</span>
+            </div>
+            <span class="font-weight-bond">
+                {% if not goalweight %}
+                    -
+                {% else %}
+                    {{goalweight[0].goalweight}} Kg
+                {% endif %}
+
+                </span>
+        </div>
+    </div>
+
+    <div class="charts">
+        <div class="charts-card">
+            <p class="chart-title">Calories Burn Trends</p>
+            <canvas id="bar-chart"></canvas>
+        </div>
+        <div class="charts-card">
+            <p class="chart-title">Weight Trends</p>
+            <canvas id="line-chart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    {% block javascript %}
+
+    <script>
+        //-----------------CHART---------------------
+        // LINE CHART
+        let weightlist = JSON.parse({{weightList | tojson | safe}})
+        let dateList = JSON.parse({{dateList | tojson | safe}})
+        const ctx = document.getElementById('line-chart');
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: dateList,
+            datasets: [{
+              label: 'weight',
+              data: weightlist,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        // BAR CHART
+
+        let calorieslist = JSON.parse({{calorieslist | tojson | safe}})
+        let dateList_cal = JSON.parse({{dateList_cal | tojson | safe}})
+        const calchart = document.getElementById('bar-chart');
+
+        new Chart(calchart, {
+          type: 'bar',
+          data: {
+            labels: calorieslist,
+            datasets: [{
+              label: 'Calories burned',
+              data: dateList_cal,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)'
+                ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+
+
+      </script>
+    {% endblock %}
+
+
+{% endblock %}
