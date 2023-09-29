@@ -3,5 +3,3 @@ Flask
 Flask-Session
 requests
 datetime
-json
-werkzeug.security
