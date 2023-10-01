@@ -33,3 +33,19 @@ At its core, ExerLogix is driven by a vision to provide users with a holistic so
 5. **Exercise Page:** Users can log their workouts on this page by entering workout details into a text box. The application uses an Nutritionix API to estimate the number of calories burned during the workout and records this information in the user's database. However, before using the exercise page, users are required to:
     *  Input their personal information on the profile page.
     * Log their current weight on the weight page.
+  
+## How To Use
+From the command line, first clone ExerLogix:
+```
+# Clone the respository
+$ git clone https://github.com/Acceletor/ExerLogix.git
+
+# Move into the repository
+$ cd ExerLogix
+
+# install package
+$ pip install -r requirements.txt
+
+# run the program
+$ flask run
+```
