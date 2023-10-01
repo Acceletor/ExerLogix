@@ -20,7 +20,9 @@ At its core, ExerLogix is driven by a vision to provide users with a holistic so
 
 **Here's a breakdown of the key features and functionalities of the application:**
 1. **Authentication System:** The web application has a login page and a register page. Users can create an account by registering and then log in using their credentials.
-2. **Dashboard Page:** After logging in, users are directed to a dashboard page. This page provides an overview of important information, including:
+
+   ![Screenshot of a Authentication System.](/ExerLogix/image/5.png)   
+3. **Dashboard Page:** After logging in, users are directed to a dashboard page. This page provides an overview of important information, including:
     - User's current weight
     - Calories burned today
     - Today's date
@@ -28,12 +30,15 @@ At its core, ExerLogix is driven by a vision to provide users with a holistic so
      **Chart Display:** The dashboard page also includes two chart displays:
     - **Bar Chart:** This chart shows the calories burned per day, allowing users to track their daily progress in burning calories.
     - **Line Chart:** This chart displays the trend of the user's weight over time, helping users visualize their weight changes.
-3. **Profile Page:** user's personal information
-4. **Weight Page:** Users can log their current weight on this page. They can also add and delete weight entries. When adding weight, the application records it with the current date. This feature allows users to track their weight changes over time.
-5. **Exercise Page:** Users can log their workouts on this page by entering workout details into a text box. The application uses an Nutritionix API to estimate the number of calories burned during the workout and records this information in the user's database. However, before using the exercise page, users are required to:
+      ![Screenshot of a Authentication System.](/ExerLogix/image/1.png) 
+4. **Profile Page:** user's personal information
+   ![Screenshot of a Authentication System.](/ExerLogix/image/2.png)
+6. **Weight Page:** Users can log their current weight on this page. They can also add and delete weight entries. When adding weight, the application records it with the current date. This feature allows users to track their weight changes over time.
+   ![Screenshot of a Authentication System.](/ExerLogix/image/3.png)
+8. **Exercise Page:** Users can log their workouts on this page by entering workout details into a text box. The application uses an Nutritionix API to estimate the number of calories burned during the workout and records this information in the user's database. However, before using the exercise page, users are required to:
     *  Input their personal information on the profile page.
     * Log their current weight on the weight page.
-  
+  ![Screenshot of a Authentication System.](/ExerLogix/image/4.png)
 ## How To Use
 From the command line, first clone ExerLogix:
 ```
