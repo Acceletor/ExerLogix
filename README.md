@@ -30,23 +30,20 @@ At its core, ExerLogix is driven by a vision to provide users with a holistic so
      **Chart Display:** The dashboard page also includes two chart displays:
     - **Bar Chart:** This chart shows the calories burned per day, allowing users to track their daily progress in burning calories.
     - **Line Chart:** This chart displays the trend of the user's weight over time, helping users visualize their weight changes.
-      ![Screenshot of a Dashboard.](/ExerLogix/image/1.png) 
+      ![Screenshot of a Dashboard.](/image/1.png) 
 4. **Profile Page:** user's personal information
-   ![Screenshot of a profile page.](/ExerLogix/image/2.png)
+   ![Screenshot of a profile page.](/image/2.png)
 6. **Weight Page:** Users can log their current weight on this page. They can also add and delete weight entries. When adding weight, the application records it with the current date. This feature allows users to track their weight changes over time.
-   ![Screenshot of a weight manager page.](/ExerLogix/image/3.png)
+   ![Screenshot of a weight manager page.](/image/3.png)
 8. **Exercise Page:** Users can log their workouts on this page by entering workout details into a text box. The application uses an Nutritionix API to estimate the number of calories burned during the workout and records this information in the user's database. However, before using the exercise page, users are required to:
     *  Input their personal information on the profile page.
     * Log their current weight on the weight page.
-  ![Screenshot of a exercise log page.](/ExerLogix/image/4.png)
+  ![Screenshot of a exercise log page.](/image/4.png)
 ## How To Use
 From the command line, first clone ExerLogix:
 ```
 # Clone the respository
 $ git clone https://github.com/Acceletor/ExerLogix.git
-
-# Move into the repository
-$ cd ExerLogix
 
 # install package
 $ pip install -r requirements.txt
