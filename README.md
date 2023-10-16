@@ -21,7 +21,8 @@ At its core, ExerLogix is driven by a vision to provide users with a holistic so
 **Here's a breakdown of the key features and functionalities of the application:**
 1. **Authentication System:** The web application has a login page and a register page. Users can create an account by registering and then log in using their credentials.
 
-   ![Screenshot of a Authentication System.](/image/5.png)   
+   ![Screenshot of a Authentication System. Login page](/image/5.png) 
+   
 3. **Dashboard Page:** After logging in, users are directed to a dashboard page. This page provides an overview of important information, including:
     - User's current weight
     - Calories burned today
